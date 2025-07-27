@@ -5,10 +5,10 @@ local shell = {}
 ---@param args table
 ---@return integer,table
 function shell.execute(command, args)
-  if vim.fn.has("nvim-0.10") == 1 then
-    local result = vim.system({ command, unpack(args) }):wait()
-    return result.code, vim.split(result.stdout, "\n")
-  end
+  -- if vim.fn.has("nvim-0.10") == 1 then
+  --   local result = vim.system({ command, unpack(args) }):wait()
+  --   return result.code, vim.split(result.stdout, "\n")
+  -- end
 
   local Job = require("plenary.job")
   local result, return_val = Job:new({
